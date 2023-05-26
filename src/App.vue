@@ -1,20 +1,11 @@
 <template>
-  <div class="box">
-    <h1>我是app組件</h1>
-  </div>
+  <div></div>
 </template>
 
 <script setup lang="ts">
-
+for (let i = 0; i < 100; i++) {
+  console.log(i)
+}
 </script>
 
-<style scoped lang="scss">
-.box {
-  width: 600px;
-  height: 600px;
-  background-color: black;
-  h1 {
-    color: white;
-  }
-}
-</style>
+<style scoped lang="scss"></style>
