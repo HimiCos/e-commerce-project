@@ -1,6 +1,6 @@
 <template>
   <div>
-    <svg class="phone" :style="{width, height}">
+    <svg class="phone" :style="{ width, height }">
       <use :xlink:href="prefix + name" :fill="color"></use>
     </svg>
   </div>
@@ -12,31 +12,29 @@ defineProps({
   // xlink:href屬性值前綴
   prefix: {
     type: String,
-    default: '#icon-'
+    default: '#icon-',
   },
   // 圖標名稱
   name: {
     type: String,
-    required: true
+    required: true,
   },
   // 圖標顏色
-  color:{
+  color: {
     type: String,
-    default: '#fff'
+    default: '#fff',
   },
   // 圖標寬度
   width: {
     type: String,
-    default: '16px'
+    default: '16px',
   },
   // 圖標高度
   height: {
     type: String,
-    default: '16px'
+    default: '16px',
   },
 })
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

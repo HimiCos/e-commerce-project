@@ -10,7 +10,7 @@ import zhCn from 'element-plus/dist/locale/zh-cn.mjs'
 const app = createApp(App)
 // 安裝element-plus插件，配置國際化
 app.use(ElementPlus, {
-  locale: zhCn
+  locale: zhCn,
 })
 // svg插件需要配置代碼
 import 'virtual:svg-icons-register'
