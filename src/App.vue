@@ -1,5 +1,7 @@
 <template>
-  <div></div>
+  <div>
+    <h1>我新增一個標題</h1>
+  </div>
 </template>
 
 <script setup lang="ts">
