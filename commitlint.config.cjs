@@ -16,6 +16,7 @@ module.exports = {
           'chore',
           'revert',
           'build',
+          'day'
         ],
       ],
       'type-case': [0],

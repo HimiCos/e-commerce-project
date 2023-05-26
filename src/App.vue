@@ -1,13 +1,15 @@
 <template>
   <div>
-    <h1>我新增一個標題</h1>
+    <h1>SVG測試</h1>
+    <svg-icon name="phone" color="hotpink" width="168px" height="168px"></svg-icon>
   </div>
 </template>
 
 <script setup lang="ts">
-for (let i = 0; i < 100; i++) {
-  console.log(i)
-}
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+h1 {
+  color: $base-color;
+}
+</style>
