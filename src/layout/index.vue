@@ -24,7 +24,7 @@
     <div class="layout_tabbar">456</div>
     <!-- 主體內容 -->
     <div class="layout_main">
-      <p style="height: 1000px;">hh</p>
+      <p style="height: 1000px">hh</p>
     </div>
   </div>
 </template>
@@ -35,18 +35,18 @@ import Logo from '@/layout/logo/index.vue'
 </script>
 
 <style scoped lang="scss">
-.layout_container{
+.layout_container {
   width: 100%;
   height: 100vh;
-  .layout_slider{
+  .layout_slider {
     width: $base-menu-width;
     height: 100vh;
     background: $base-menu-background;
-    .scrollbar{
+    .scrollbar {
       height: calc(100vh - $base-menu-logo-height);
     }
   }
-  .layout_tabbar{
+  .layout_tabbar {
     position: fixed;
     top: 0;
     left: $base-menu-width;
@@ -55,7 +55,7 @@ import Logo from '@/layout/logo/index.vue'
     background: pink;
     padding: 20px;
   }
-  .layout_main{
+  .layout_main {
     position: absolute;
     top: $base-tabbar-height;
     left: $base-menu-width;

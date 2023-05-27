@@ -1,6 +1,6 @@
 <template>
   <div class="logo" v-if="!setting.logoHidden">
-    <img :src="setting.logo" alt="">
+    <img :src="setting.logo" alt="" />
     <p>{{ setting.title }}</p>
   </div>
 </template>
@@ -11,7 +11,7 @@ import setting from '@/setting'
 </script>
 
 <style scoped lang="scss">
-.logo{
+.logo {
   width: 100%;
   height: $base-menu-logo-height;
   color: rgb(221, 215, 215);
@@ -19,12 +19,12 @@ import setting from '@/setting'
   align-items: center;
   justify-content: flex-start;
   padding-left: 20px;
-  img{
+  img {
     width: 40px;
     height: 40px;
     margin-right: 10px;
   }
-  p{
+  p {
     font-size: $base-logo-title-fontSize;
   }
 }
