@@ -1,6 +1,6 @@
 <template>
   <div>
-    <router-view></router-view>
+    <h3>404頁面</h3>
   </div>
 </template>
 

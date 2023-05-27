@@ -1,2 +1,14 @@
 // 引入清楚默認樣式
 @import "./reset.scss";
+
+// 滾動條外觀設置
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: $base-menu-background;
+}
+::-webkit-scrollbar-thumb {
+  width: 10px;
+  background: #1890ff;
+}
