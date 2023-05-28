@@ -47,7 +47,7 @@
 import { User, Lock } from '@element-plus/icons-vue'
 import { reactive, ref } from 'vue'
 // 引入vue-router
-import { useRouter } from 'vue-router'
+import { useRouter, useRoute } from 'vue-router'
 // @ts-ignore
 import { ElNotification } from 'element-plus'
 // 引入用戶相關的小倉庫
@@ -57,6 +57,7 @@ import { getTime } from '@/utils/time'
 
 let userStore = useUserStore()
 let $router = useRouter()
+let $route = useRoute()
 
 // 獲取el-form組件
 let loginForms = ref()
@@ -78,7 +79,9 @@ const login = async () => {
     // 保證登陸成功
     await userStore.userLogin(loginForm)
     // 編程式導航跳轉到首頁
-    $router.push('/')
+    // 判断登陆时，是否有query参数，如果有，就跳转到query参数指定的页面，如果没有，就跳转到首页
+    let redirect = $route.query.redirect as string
+    $router.push({ path: redirect ? redirect : '/' })
     // 成功提示
     ElNotification({
       type: 'success',
