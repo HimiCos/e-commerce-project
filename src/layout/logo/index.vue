@@ -9,10 +9,10 @@
 // 引入設置標題與logo的配置文件
 import setting from '@/setting'
 // 引入layout配置相关的小仓库
-import useLayOutSettingStore from '@/store/modules/setting';
+import useLayOutSettingStore from '@/store/modules/setting'
 
 // 获取layout配置相关的仓库
-let LayOutSettingStore = useLayOutSettingStore();
+let LayOutSettingStore = useLayOutSettingStore()
 </script>
 
 <script lang="ts">

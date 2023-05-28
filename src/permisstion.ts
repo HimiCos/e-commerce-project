@@ -18,8 +18,8 @@ const userStore = useUserStore(pinia)
 nprogress.configure({ showSpinner: false })
 
 // 全局前置守卫
-router.beforeEach(async(to, from, next) => {
-  document.title = setting.title.slice(0,4)+ '-' + to.meta.title
+router.beforeEach(async (to, from, next) => {
+  document.title = setting.title.slice(0, 4) + '-' + to.meta.title
   //to:你将要访问那个路由
   //from:你从哪个路由而来
   //next:路由的放行函数
@@ -38,16 +38,15 @@ router.beforeEach(async(to, from, next) => {
       // 有用户信息，直接放行
       if (username) {
         next()
-      }else{
+      } else {
         // 如果没有用户信息，获取用户信息
         try {
           await userStore.userInfo()
           next()
-        }
-        catch (error) {
+        } catch (error) {
           // 如果获取用户信息失败，退出登录并跳转到登陆页
           userStore.userLogout()
-          next({ path: '/login', query: { redirect: to.path }})
+          next({ path: '/login', query: { redirect: to.path } })
         }
       }
     }

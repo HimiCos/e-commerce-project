@@ -10,9 +10,6 @@
 
 // // 获取user小仓库
 // let userStore = useUserStore();
-
 </script>
 
-<style scoped lang="scss">
-
-</style>
+<style scoped lang="scss"></style>

@@ -1,9 +1,9 @@
 <template>
   <el-row>
-    <el-button icon="Refresh" circle @click="updateRefresh"/>
-    <el-button icon="FullScreen" circle @click="fullScreen"/>
+    <el-button icon="Refresh" circle @click="updateRefresh" />
+    <el-button icon="FullScreen" circle @click="fullScreen" />
     <el-button icon="Setting" circle />
-    <img :src="userStore.avatar" alt=""/>
+    <img :src="userStore.avatar" alt="" />
     <!-- 下拉菜单 -->
     <el-dropdown>
       <span class="el-dropdown-link">
@@ -33,7 +33,7 @@ let $router = useRouter()
 // 获取路由信息对象
 let $route = useRoute()
 // 获取小仓库
-let LayOutSettingStore  = useLayOutSettingStore()
+let LayOutSettingStore = useLayOutSettingStore()
 // 获取user小仓库
 let userStore = useUserStore()
 
@@ -58,7 +58,7 @@ const logout = () => {
   // 调用user小仓库的退出登陆方法
   userStore.userLogout()
   // 跳转到登陆页面
-  $router.push({ path: '/login', query: { redirect: $route.path }})
+  $router.push({ path: '/login', query: { redirect: $route.path } })
 }
 </script>
 
@@ -75,7 +75,7 @@ img {
   border: 1px solid #ccc;
   border-radius: 50%;
   height: 31px;
-  width: 31px
+  width: 31px;
 }
 .el-dropdown-link {
   display: flex;

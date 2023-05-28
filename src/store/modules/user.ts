@@ -6,7 +6,11 @@ import { reqLogin, reqUserInfo } from '@/api/user'
 import type { loginForm, loginResponseData } from '@/api/user/type'
 import type { UserState } from '@/store/modules/types/type'
 // 引入操作本地存儲的工具方法
-import { Set_localStorage, Get_localStorage, Del_localStorage } from '@/utils/localStorage'
+import {
+  Set_localStorage,
+  Get_localStorage,
+  Del_localStorage,
+} from '@/utils/localStorage'
 // 引入路由（常量）
 import { constantRoute } from '@/router/routes'
 // 創建用戶小倉庫
@@ -29,7 +33,7 @@ let useUserStore = defineStore('User', {
       if (result.code === 200) {
         // pinia倉庫存儲一下token
         this.token = result.data.token as string
-        Set_localStorage('TOKEN',result.data.token as string)
+        Set_localStorage('TOKEN', result.data.token as string)
         // 保證當前async函數返回一個成功的promise
         return 'ok'
       } else {
@@ -57,7 +61,7 @@ let useUserStore = defineStore('User', {
       this.avatar = ''
       // 清空本地存儲中的token數據
       Del_localStorage('TOKEN')
-    }
+    },
   },
   getters: {},
 })

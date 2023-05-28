@@ -6,9 +6,9 @@ let useLayOutSettingStore = defineStore('SettingStore', {
   state: () => {
     return {
       fold: false, //用于控制菜单的展开和收起
-      refresh: false //这个属性用于控制刷新效果
+      refresh: false, //这个属性用于控制刷新效果
     }
-  }
+  },
 })
 
 export default useLayOutSettingStore

@@ -9,23 +9,26 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watch, nextTick } from 'vue';
+import { ref, watch, nextTick } from 'vue'
 // 引入layout配置小仓库
-import useLayOutSettingStore from '@/store/modules/setting';
+import useLayOutSettingStore from '@/store/modules/setting'
 // 获取小仓库
-let LayOutSettingStore = useLayOutSettingStore();
+let LayOutSettingStore = useLayOutSettingStore()
 
 // 控制当前组件是否销毁
 let isNotDestroy = ref(true)
 
-watch(() => LayOutSettingStore.refresh, () => {
-  isNotDestroy.value = false
-  setTimeout(() => {
-    nextTick(() => {
-      isNotDestroy.value = true
-    })
-  }, 100)
-});
+watch(
+  () => LayOutSettingStore.refresh,
+  () => {
+    isNotDestroy.value = false
+    setTimeout(() => {
+      nextTick(() => {
+        isNotDestroy.value = true
+      })
+    }, 100)
+  },
+)
 </script>
 
 <script lang="ts">
@@ -35,14 +38,14 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.fade-enter-from{
+.fade-enter-from {
   opacity: 0;
   transform: scale(0);
 }
-.fade-enter-active{
-  transition: all .3s;
+.fade-enter-active {
+  transition: all 0.3s;
 }
-.fade-enter-to{
+.fade-enter-to {
   opacity: 1;
   transform: scale(1);
 }

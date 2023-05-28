@@ -8,7 +8,7 @@ export const constantRoute = [
     meta: {
       title: '登陸',
       hidden: true,
-    }
+    },
   },
   // 首頁
   {
@@ -28,9 +28,9 @@ export const constantRoute = [
           title: '首页',
           hidden: false,
           icon: 'HomeFilled',
-        }
+        },
       },
-    ]
+    ],
   },
   // screen
   {
@@ -40,8 +40,8 @@ export const constantRoute = [
     meta: {
       title: '数据大屏',
       hidden: false,
-      icon: 'Platform'
-    }
+      icon: 'Platform',
+    },
   },
   // acl
   {
@@ -51,7 +51,7 @@ export const constantRoute = [
     redirect: '/acl/user',
     meta: {
       title: '权限管理',
-      icon: 'Flag'
+      icon: 'Flag',
     },
     children: [
       {
@@ -60,8 +60,8 @@ export const constantRoute = [
         name: 'Acl',
         meta: {
           title: '用户管理',
-          icon: 'UserFilled'
-        }
+          icon: 'UserFilled',
+        },
       },
       {
         path: '/acl/role',
@@ -69,8 +69,8 @@ export const constantRoute = [
         name: 'Role',
         meta: {
           title: '角色管理',
-          icon: 'Stamp'
-        }
+          icon: 'Stamp',
+        },
       },
       {
         path: '/acl/permission',
@@ -78,10 +78,10 @@ export const constantRoute = [
         name: 'Permission',
         meta: {
           title: '菜单管理',
-          icon: 'List'
-        }
+          icon: 'List',
+        },
       },
-    ]
+    ],
   },
   // product
   {
@@ -91,7 +91,7 @@ export const constantRoute = [
     redirect: '/product/trademark',
     meta: {
       title: '商品管理',
-      icon: 'GoodsFilled'
+      icon: 'GoodsFilled',
     },
     children: [
       {
@@ -100,8 +100,8 @@ export const constantRoute = [
         name: 'Trademark',
         meta: {
           title: '品牌管理',
-          icon: 'BrushFilled'
-        }
+          icon: 'BrushFilled',
+        },
       },
       {
         path: '/product/attr',
@@ -109,8 +109,8 @@ export const constantRoute = [
         name: 'Attr',
         meta: {
           title: '属性管理',
-          icon: 'Opportunity'
-        }
+          icon: 'Opportunity',
+        },
       },
       {
         path: '/product/spu',
@@ -118,8 +118,8 @@ export const constantRoute = [
         name: 'Spu',
         meta: {
           title: 'SPU管理',
-          icon: 'Management'
-        }
+          icon: 'Management',
+        },
       },
       {
         path: '/product/sku',
@@ -127,10 +127,10 @@ export const constantRoute = [
         name: 'Sku',
         meta: {
           title: 'SKU管理',
-          icon: 'Ticket'
-        }
-      }
-    ]
+          icon: 'Ticket',
+        },
+      },
+    ],
   },
   // 404
   {
@@ -140,7 +140,7 @@ export const constantRoute = [
     meta: {
       title: '404',
       hidden: true,
-    }
+    },
   },
   // 任意路由
   {
@@ -150,6 +150,6 @@ export const constantRoute = [
     meta: {
       title: '任意路由',
       hidden: true,
-    }
+    },
   },
 ]
