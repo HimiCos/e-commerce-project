@@ -278,7 +278,7 @@ const deleteTrademark = async (row: TradeMark) => {
     // 提示成功
     ElMessage.success('删除成功')
     // 重新获取数据（有id就跳转当前页 没id就跳转最后一页）
-    getHasTrademark(pageNo.value)
+    getHasTrademark(trademarkArr.value.length>1 ? pageNo.value : pageNo.value-1)
   } else {
     // 提示失败
     ElMessage.error('删除失败')
