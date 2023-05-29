@@ -3,7 +3,7 @@
     <el-button icon="Refresh" circle @click="updateRefresh" />
     <el-button icon="FullScreen" circle @click="fullScreen" />
     <el-button icon="Setting" circle />
-    <img :src="userStore.avatar" alt="" />
+    <img :src="userStore.avatar ? userStore.avatar : undefined" alt="" />
     <!-- 下拉菜单 -->
     <el-dropdown>
       <span class="el-dropdown-link">

@@ -1,0 +1,1 @@
+import{_ as e,o,f as s,m as c}from"./index-bb7417ef.js";const n={},t=c("p",null,"acl: permission",-1),r=[t];function _(a,i){return o(),s("div",null,r)}const d=e(n,[["render",_]]);export{d as default};

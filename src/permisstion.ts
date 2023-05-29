@@ -18,7 +18,7 @@ const userStore = useUserStore(pinia)
 nprogress.configure({ showSpinner: false })
 
 // 全局前置守卫
-router.beforeEach(async (to, from, next) => {
+router.beforeEach(async (to, _, next) => {
   document.title = setting.title.slice(0, 4) + '-' + to.meta.title
   //to:你将要访问那个路由
   //from:你从哪个路由而来
@@ -62,7 +62,7 @@ router.beforeEach(async (to, from, next) => {
   }
 })
 // 全局后置守卫
-router.afterEach((to, from) => {
+router.afterEach(() => {
   // ...
   nprogress.done()
 })
