@@ -71,10 +71,10 @@ const loginForm = reactive({
 
 // 登陸按鈕回調
 const login = async () => {
-  try{
+  try {
     // 保證全部的表單校驗通過
     await loginForms.value.validate()
-  }catch{
+  } catch {
     return false
   }
   // 登陸按鈕加載中

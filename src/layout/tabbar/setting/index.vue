@@ -56,7 +56,7 @@ const fullScreen = () => {
   }
 }
 // 退出登陆点击的回调
-const logout = async() => {
+const logout = async () => {
   // 调用user小仓库的退出登陆方法
   await userStore.userLogout()
   // 成功提示
