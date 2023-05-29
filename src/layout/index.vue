@@ -77,7 +77,7 @@ export default {
       height: calc(100vh - $base-menu-logo-height);
       .el-menu {
         border-right: none;
-        margin: 8px;
+        margin: 15px 8px;
       }
     }
   }
@@ -95,11 +95,11 @@ export default {
   }
   .layout_main {
     position: absolute;
+    background: white;
     top: $base-tabbar-height;
     left: $base-menu-width;
     width: calc(100% - $base-menu-width);
     height: calc(100vh - $base-tabbar-height);
-    background: #8c6666;
     padding: 20px;
     overflow: auto;
     transition: all 0.3s;

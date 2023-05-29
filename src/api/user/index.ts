@@ -1,15 +1,18 @@
 // 統一管理用戶相關的接口
 import request from '@/utils/request'
-import type { loginForm, loginResponseData, userResponseData } from './type'
-// 統一管理接口
+import type { loginFormData, loginResponseData, userInfoResponseData } from '@/api/user/type'
+// 项目用户相关的请求地址
 enum API {
-  LOGIN_URL = '/user/login',
-  USER_INFO_URL = '/user/info',
+  LOGIN_URL = '/admin/acl/index/login',
+  USERINFO_URL = '/admin/acl/index/info',
+  LOGOUT_URL = '/admin/acl/index/logout'
 }
-// 暴露請求函數
-// 登錄接口方法 {username:string,password:string}
-export const reqLogin = (data: loginForm) =>
-  request.post<any, loginResponseData>(API.LOGIN_URL, data)
-// 獲取用戶信息接口方法
-export const reqUserInfo = () =>
-  request.get<any, userResponseData>(API.USER_INFO_URL)
+
+// 登录接口
+export const reqLogin = (data: loginFormData) => request.post<any, loginResponseData>(API.LOGIN_URL, data)
+
+// 获取用户信息接口
+export const reqUserInfo = () => request.get<any, userInfoResponseData>(API.USERINFO_URL)
+
+// 退出登录接口
+export const reqLogout = () => request.post<any, any>(API.LOGOUT_URL)

@@ -71,4 +71,7 @@ export default {
 .el-menu-item:hover {
   border-radius: 15px;
 }
+.el-menu-item{
+  padding: 0 50px;
+}
 </style>

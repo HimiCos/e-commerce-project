@@ -66,13 +66,17 @@ let loading = ref(false)
 // 收集帳號與密碼的數據
 const loginForm = reactive({
   username: 'admin',
-  password: '111111',
+  password: 'atguigu123',
 })
 
 // 登陸按鈕回調
 const login = async () => {
-  // 保證全部的表單校驗通過
-  await loginForms.value.validate()
+  try{
+    // 保證全部的表單校驗通過
+    await loginForms.value.validate()
+  }catch{
+    return false
+  }
   // 登陸按鈕加載中
   loading.value = true
   try {

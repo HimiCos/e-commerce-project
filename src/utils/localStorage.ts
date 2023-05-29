@@ -1,7 +1,7 @@
 // 封裝本地存儲數據與讀取數據的方法
 
 // 存儲數據
-export const Set_localStorage = (key: string, value: string) => {
+export const Set_localStorage = (key: string, value: any) => {
   localStorage.setItem(key, value)
 }
 // 本地存儲獲取數據

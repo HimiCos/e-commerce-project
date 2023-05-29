@@ -29,6 +29,7 @@ export default {
   background-color: white;
   display: flex;
   justify-content: space-between;
+  border-bottom: 1px solid #ebeef5;
   .tabbar_left {
     display: flex;
     align-items: center;

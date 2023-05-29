@@ -45,7 +45,7 @@ router.beforeEach(async (to, from, next) => {
           next()
         } catch (error) {
           // 如果获取用户信息失败，退出登录并跳转到登陆页
-          userStore.userLogout()
+          await userStore.userLogout()
           next({ path: '/login', query: { redirect: to.path } })
         }
       }

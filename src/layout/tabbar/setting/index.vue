@@ -28,6 +28,8 @@ import { useRouter, useRoute } from 'vue-router'
 import useLayOutSettingStore from '@/store/modules/setting'
 // 引入user小仓库
 import useUserStore from '@/store/modules/user'
+// @ts-ignore
+import { ElNotification } from 'element-plus'
 // 获取路由对象
 let $router = useRouter()
 // 获取路由信息对象
@@ -54,9 +56,14 @@ const fullScreen = () => {
   }
 }
 // 退出登陆点击的回调
-const logout = () => {
+const logout = async() => {
   // 调用user小仓库的退出登陆方法
-  userStore.userLogout()
+  await userStore.userLogout()
+  // 成功提示
+  ElNotification({
+    type: 'success',
+    message: '退出登陆成功',
+  })
   // 跳转到登陆页面
   $router.push({ path: '/login', query: { redirect: $route.path } })
 }

@@ -30,6 +30,7 @@ export default {
   align-items: center;
   justify-content: flex-start;
   padding-left: 20px;
+  padding-top: 20px;
   img {
     width: 40px;
     height: 40px;
