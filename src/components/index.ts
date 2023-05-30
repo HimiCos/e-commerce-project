@@ -1,7 +1,8 @@
 // 引入項目中所有的全局組件
 import SvgIcon from './SvgIcon/index.vue'
+import Category from './Category/index.vue'
 // 將所有全局組件組成一個對象
-const allGlobalComponents: any = { SvgIcon }
+const allGlobalComponents: any = { SvgIcon, Category }
 // 引入element-plus提供的全部图标组件
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 // 對外暴露插件對象

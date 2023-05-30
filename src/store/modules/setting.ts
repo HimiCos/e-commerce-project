@@ -9,6 +9,11 @@ let useLayOutSettingStore = defineStore('SettingStore', {
       refresh: false, //这个属性用于控制刷新效果
     }
   },
+  actions: {
+    updateRefresh() {
+      this.refresh = !this.refresh
+    }
+  }
 })
 
 export default useLayOutSettingStore

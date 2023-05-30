@@ -1,6 +1,6 @@
 <template>
   <el-row>
-    <el-button icon="Refresh" circle @click="updateRefresh" />
+    <el-button icon="Refresh" circle @click="LayOutSettingStore.updateRefresh" />
     <el-button icon="FullScreen" circle @click="fullScreen" />
     <el-button icon="Setting" circle />
     <img :src="userStore.avatar ? userStore.avatar : undefined" alt="" />
@@ -39,10 +39,6 @@ let LayOutSettingStore = useLayOutSettingStore()
 // 获取user小仓库
 let userStore = useUserStore()
 
-// 刷新按钮点击的回调
-const updateRefresh = () => {
-  LayOutSettingStore.refresh = !LayOutSettingStore.refresh
-}
 // 全屏按钮点击的回调
 const fullScreen = () => {
   // Dom对象的一个属性：可以用来判断当前是否全屏
