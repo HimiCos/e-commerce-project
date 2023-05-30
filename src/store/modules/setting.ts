@@ -12,8 +12,8 @@ let useLayOutSettingStore = defineStore('SettingStore', {
   actions: {
     updateRefresh() {
       this.refresh = !this.refresh
-    }
-  }
+    },
+  },
 })
 
 export default useLayOutSettingStore

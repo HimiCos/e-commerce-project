@@ -6,7 +6,7 @@ export interface ResponseData {
 }
 // 分类ts类型
 export interface CategoryObj {
-  id: number|string
+  id: number | string
   name: string
   category1Id?: number
   category2Id?: number
@@ -31,7 +31,7 @@ export type AttrValueList = AttrValue[]
 export interface Attr {
   id?: number
   attrName: string
-  categoryId: number|string
+  categoryId: number | string
   categoryLevel: number
   attrValueList: AttrValueList
 }
