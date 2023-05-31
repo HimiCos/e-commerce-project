@@ -36,7 +36,6 @@
         <el-select
           v-model="categoryStore.c3Id"
           placeholder="请选择"
-          @change="categoryStore.getAttrArr"
           :disabled="scene == 1"
         >
           <el-option
@@ -66,7 +65,6 @@ onMounted(() => {
   if (categoryStore.c1Arr.length == 0) {
     categoryStore.getC1Arr()
   }
-  categoryStore.getAttrArr()
 })
 </script>
 

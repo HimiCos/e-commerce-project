@@ -58,7 +58,7 @@
       <!-- 底部分页器 -->
       <el-pagination
         v-model:current-page="pageNo"
-        v-model:page-size="limit"
+        v-model:page-size="categoryStore.limit"
         :page-sizes="[3, 5, 7, 9]"
         :background="true"
         layout="prev, pager, next, jumper, ->, sizes, total"
@@ -132,11 +132,11 @@ import type { UploadProps } from 'element-plus'
 import { ElMessage } from 'element-plus'
 // 引入localStorage.ts
 import { Set_localStorage, Get_localStorage } from '@/utils/localStorage'
+// 引入分类小仓库
+import useCategoryStore from '@/store/modules/category'
 
 // 从 localStorage 中获取当前页码
 let pageNo = ref(parseInt(Get_localStorage('trademarkPageNo') as string))
-// 每页显示条数
-let limit = ref<number>(3)
 // 存储已有品牌的数据
 let trademarkArr = ref<Records>([])
 // 存储已有品牌的总条数
@@ -150,6 +150,8 @@ let trademarkParams = reactive<TradeMark>({
 })
 // 获取form表单的实例对象
 let formRef = ref()
+// 获取分类小仓库
+let categoryStore = useCategoryStore()
 
 // 获取已有品牌的接口封装成一个函数
 const getHasTrademark = async (pager = 1) => {
@@ -158,7 +160,7 @@ const getHasTrademark = async (pager = 1) => {
   // 调用接口
   let result: TradeMarkResponseData = await reqHasTrademark(
     pageNo.value,
-    limit.value,
+    categoryStore.limit,
   )
   if (result.code == 200) {
     // 将数据存储到 hasTrademarkList 中
@@ -169,6 +171,7 @@ const getHasTrademark = async (pager = 1) => {
 }
 // 当每页显示条数改变时触发
 const changeSize = () => {
+  Set_localStorage('Limit', categoryStore.limit)
   getHasTrademark()
 }
 // 对话框标题(计算属性)
@@ -241,7 +244,7 @@ const handleConfirm = async () => {
       getHasTrademark(
         trademarkParams.id
           ? pageNo.value
-          : Math.floor(total.value / limit.value) + 1,
+          : Math.floor(total.value / categoryStore.limit) + 1,
       )
     } else {
       // 关闭对话框

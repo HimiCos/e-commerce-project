@@ -24,4 +24,6 @@ export interface CategoryState {
   c3Id: number | string
   // 存储属性的数据
   attrArr: Attr[]
+  // 存储当前页码数
+  limit: number
 }

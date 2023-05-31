@@ -9,6 +9,7 @@ import type {
 } from '@/api/product/attr/type'
 // 引入state類型
 import type { CategoryState } from '@/store/modules/types/type'
+import { Get_localStorage } from '@/utils/localStorage'
 
 // 創建用戶小倉庫
 let useCategoryStore = defineStore('Category', {
@@ -28,6 +29,8 @@ let useCategoryStore = defineStore('Category', {
       c3Id: '',
       // 存储属性的数据
       attrArr: [],
+      // 存储当前页码数
+      limit: parseInt(Get_localStorage('Limit') as string) || 3,
     }
   },
   actions: {
@@ -75,8 +78,6 @@ let useCategoryStore = defineStore('Category', {
           this.c2Id,
           this.c3Id,
         )
-        console.log(result)
-
         if (result.code === 200) {
           this.attrArr = result.data
         }

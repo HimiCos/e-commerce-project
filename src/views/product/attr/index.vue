@@ -129,7 +129,7 @@
 
 <script setup lang="ts">
 // 引入ref
-import { ref, reactive, nextTick } from 'vue'
+import { ref, reactive, nextTick, watch, onMounted } from 'vue'
 // 引入分类相关的小仓库
 import useCategoryStore from '@/store/modules/category'
 // 引入layout配置小仓库
@@ -233,12 +233,26 @@ const deleteAttrValue = ($index: number) => {
 const deleteAttr = async (row: Attr) => {
   // 发送请求
   await reqDeleteAttr(row.id as number)
-  categoryStore.getAttrArr()
+  setTimeout(() => {
+    categoryStore.getAttrArr()
+  }, 50)
   try {
     ElMessage.success('删除成功')
-    categoryStore.getAttrArr()
   } catch {}
 }
+// 监视c3Id的变化
+watch(
+  () => categoryStore.c3Id,
+  () => {
+    // 发送请求获取属性列表
+    categoryStore.getAttrArr()
+  },
+)
+// 挂载后
+onMounted(() => {
+  // 发送请求获取属性列表
+  categoryStore.getAttrArr()
+})
 </script>
 
 <style scoped lang="scss"></style>
