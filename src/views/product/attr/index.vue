@@ -3,7 +3,7 @@
     <!-- 选择框的卡片 -->
     <Category :scene="scene" />
     <!-- 展示内容的卡片 -->
-    <el-card>
+    <el-card shadow="hover">
       <div v-show="scene == 0">
         <el-button
           type="primary"
@@ -46,8 +46,8 @@
                 @click="editAttr(row)"
               ></el-button>
               <el-popconfirm
-                :title="`是否要删除${row.tmName}属性呢？`"
-                width="260px"
+                :title="`是否要删除当前的属性呢？`"
+                width="220px"
                 icon="Warning"
                 @confirm="deleteAttr(row)"
               >
@@ -75,7 +75,7 @@
         <el-button
           type="primary"
           icon="Plus"
-          :disabled="!attrParams.attrName"
+          :disabled="!attrParams.attrName.trim()"
           @click="addAttrValue"
         >
           添加属性值
@@ -207,8 +207,8 @@ const cancel = () => {
 }
 // el-input失去焦点的回调
 const toShow = (row: AttrValue, $index: number) => {
-  // 判断是否为空
-  if (!row.valueName) {
+  // 判断是否为空且不能为空格
+  if (!row.valueName.trim()) {
     ElMessage.error('属性值不能为空')
     // 删除当前的属性值
     attrParams.attrValueList.splice($index, 1)

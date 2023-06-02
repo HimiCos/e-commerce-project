@@ -3,7 +3,7 @@
     <!-- 三个分类 -->
     <Category :scene="scene" />
     <!-- 卡片 -->
-    <el-card>
+    <el-card shadow="hover">
       <!-- 场景0 -->
       <div v-show="scene == 0">
         <!-- 添加按钮 -->
@@ -56,7 +56,8 @@
               ></el-button>
               <el-popconfirm
                 title="确定要删除当前的SPU吗? "
-                width="260px"
+                width="230px"
+                icon="Warning"
                 @confirm="deleteSpu(row)"
               >
                 <template #reference>
@@ -79,7 +80,7 @@
           :background="true"
           layout="prev, pager, next, jumper, ->, sizes, total"
           :total="total"
-          @current-change="getSpuList"
+          @current-change="getSpuList(pageNo)"
           @size-change="getSpuList()"
         />
       </div>

@@ -1,6 +1,6 @@
 <template>
   <!-- 选择框的卡片 -->
-  <el-card style="margin-bottom: 10px">
+  <el-card style="margin-bottom: 10px" shadow="hover">
     <el-form inline>
       <el-form-item label="一级分类">
         <el-select

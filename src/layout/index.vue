@@ -12,6 +12,7 @@
           :default-active="$route.path"
           background-color="#001529"
           text-color="rgb(221, 215, 215)"
+          unique-opened
         >
           <Menu :menuList="userStore.menuRouters" />
         </el-menu>

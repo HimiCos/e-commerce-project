@@ -11,7 +11,7 @@
           ref="loginForms"
         >
           <h1>Hello</h1>
-          <h2>歡迎來到硅谷甄選</h2>
+          <h2>欢迎来到硅谷甄选</h2>
           <el-form-item prop="username">
             <el-input
               :prefix-icon="User"
@@ -33,7 +33,7 @@
               type="primary"
               @click="login"
             >
-              登陸
+              登陆
             </el-button>
           </el-form-item>
         </el-form>
@@ -90,7 +90,7 @@ const login = async () => {
     ElNotification({
       type: 'success',
       title: `Hi, ${getTime()}!`,
-      message: '歡迎回來~',
+      message: '欢迎回来～',
     })
     // 登陸成功取消按鈕加載中
     loading.value = false
@@ -110,14 +110,14 @@ const validateUserName = (_: any, value: any, callback: any) => {
   if (value.length >= 5) {
     callback()
   } else {
-    callback(new Error('用戶名長度至少五位'))
+    callback(new Error('用户名长度至少五位'))
   }
 }
 const validateUserPassword = (_: any, value: any, callback: any) => {
   if (value.length >= 6) {
     callback()
   } else {
-    callback(new Error('密碼長度至少六位'))
+    callback(new Error('密码長度至少六位'))
   }
 }
 // 定義表單校驗需要的配置對象

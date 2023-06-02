@@ -89,7 +89,7 @@
           />
           <el-table-column label="属性值" align="center">
             <!-- 表格中的属性值 -->
-            <template #="{ row }">
+            <template #="{ row, $index }">
               <el-tag
                 v-for="(item, index) in row.spuSaleAttrValueList"
                 :key="item.id"
@@ -105,7 +105,7 @@
                 size="small"
                 icon="Plus"
                 v-show="!row.flag == true"
-                @click="ChangeI(row)"
+                @click="ChangeI(row, $index)"
               ></el-button>
               <el-input
                 v-show="row.flag == true"
@@ -113,7 +113,7 @@
                 size="small"
                 style="width: 100px"
                 placeholder="请输入属性值"
-                ref="BInput"
+                :ref="(vc: HTMLElement) => tableInput[$index] = vc"
                 v-model="row.saleAttrValue"
               ></el-input>
             </template>
@@ -195,8 +195,8 @@ let SpuParams = ref<SpuData>({
 let dialogVisible = ref<boolean>(false)
 // 预览照片的地址
 let dialogImageUrl = ref<string>('')
-// 获取BInput的ref
-let BInput = ref<HTMLElement>()
+// 获取tableInput的ref
+let tableInput = ref<HTMLElement[]>([])
 // 将来收集还未选择的销售属性的ID与属性值的名字
 let saleAttrIdAndName = ref<string>('')
 
@@ -288,12 +288,12 @@ const beforeUpload = (file: any) => {
 }
 
 // 添加按钮的回调
-const ChangeI = (row: SaleAttr) => {
+const ChangeI = (row: SaleAttr, $index: number) => {
   row.flag = true
   row.saleAttrValue = ''
   // 点击添加按钮时，让输入框获取焦点
   nextTick(() => {
-    BInput.value?.focus()
+    tableInput.value[$index].focus()
   })
 }
 // input框失去焦点时触发的钩子函数
