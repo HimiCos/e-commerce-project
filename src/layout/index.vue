@@ -23,12 +23,13 @@
       class="layout_tabbar"
       :class="{ fold: LayOutSettingStore.fold ? true : false }"
     >
-      <Tabbar />
+      <Tabbar :background="background" :backgroundBorder="backgroundBorder" />
     </div>
     <!-- 主體內容 -->
     <div
       class="layout_main"
       :class="{ fold: LayOutSettingStore.fold ? true : false }"
+      :style="{ background }"
     >
       <Main />
     </div>
@@ -36,6 +37,8 @@
 </template>
 
 <script setup lang="ts">
+// 引入ref
+import { ref, watch, onBeforeMount } from 'vue'
 // 引入useRoute
 import { useRoute } from 'vue-router'
 // 引入左側菜單logo子組件
@@ -57,6 +60,33 @@ let userStore = useUserStore()
 let LayOutSettingStore = useLayOutSettingStore()
 // 获取路由对象
 let $route = useRoute()
+let background = ref('')
+let backgroundBorder = ref('')
+
+// 监视 LayOutSettingStore.dark 变化
+watch(
+  () => LayOutSettingStore.dark,
+  (val) => {
+    // 如果是深色模式
+    if (val) {
+      // 设置背景颜色
+      background.value = 'rgb(27, 27, 27)'
+      backgroundBorder.value = '#54565b'
+    } else {
+      // 设置背景颜色
+      background.value = '#fff'
+      backgroundBorder.value = '#ebeef5'
+    }
+  },
+  { immediate: true },
+)
+// 组件挂载时
+onBeforeMount(() => {
+  //获取HTML根节点
+  let html = document.documentElement
+  //判断HTML标签是否有类名dark
+  LayOutSettingStore.dark ? (html.className = 'dark') : (html.className = '')
+})
 </script>
 
 <script lang="ts">
@@ -96,7 +126,6 @@ export default {
   }
   .layout_main {
     position: absolute;
-    background: white;
     top: $base-tabbar-height;
     left: $base-menu-width;
     width: calc(100% - $base-menu-width);

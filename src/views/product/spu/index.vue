@@ -81,7 +81,7 @@
           layout="prev, pager, next, jumper, ->, sizes, total"
           :total="total"
           @current-change="getSpuList(pageNo)"
-          @size-change="getSpuList()"
+          @size-change="changeSize"
         />
       </div>
       <!-- 场景1 spuForm -->
@@ -130,6 +130,8 @@ import SkuForm from './skuForm.vue'
 // 引入ElMessage
 // @ts-ignore
 import { ElMessage } from 'element-plus'
+// 引入localStorage.ts
+import { Set_localStorage } from '@/utils/localStorage'
 
 // 场景0 1 2
 const scene = ref<number>(0)
@@ -246,6 +248,11 @@ const deleteSpu = async (row: any) => {
   } else {
     ElMessage.error('删除SPU失败')
   }
+}
+// 当每页显示条数改变时触发
+const changeSize = () => {
+  Set_localStorage('Limit', categoryStore.limit)
+  getSpuList()
 }
 </script>
 

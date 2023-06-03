@@ -79,7 +79,7 @@
         layout="prev, pager, next, jumper, ->, sizes, total"
         :total="total"
         @current-change="getHasSku(pageNo)"
-        @size-change="getHasSku()"
+        @size-change="changeSize"
       />
       <!-- 點擊詳情彈出的drawer -->
       <el-drawer v-model="drawer" title="商品详情" size="40%">
@@ -176,6 +176,8 @@ import type {
 // 引入提示组件
 // @ts-ignore
 import { ElMessage } from 'element-plus'
+// 引入localStorage.ts
+import { Set_localStorage } from '@/utils/localStorage'
 
 // 存取SKU列表的数组
 let skuParams = ref<SkuData[]>([])
@@ -256,6 +258,11 @@ const deleteSku = async (skuId: number) => {
   } else {
     ElMessage.error(result.data)
   }
+}
+// 当每页显示条数改变时触发
+const changeSize = () => {
+  Set_localStorage('Limit', categoryStore.limit)
+  getHasSku()
 }
 </script>
 

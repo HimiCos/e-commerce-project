@@ -43,7 +43,7 @@
               @click="updateTrademark(row)"
             ></el-button>
             <el-popconfirm
-              :title="`是否要删除${row.tmName}品牌呢？`"
+              title="确定要删除当前的品牌吗? "
               width="230px"
               icon="Warning"
               @confirm="deleteTrademark(row)"
@@ -262,7 +262,7 @@ watch(pageNo, (newPageNo) => {
 // 挂载完成时调用
 onMounted(() => {
   // 获取已有品牌的数据（并跳转到localStorage中的页面值处）
-  getHasTrademark(pageNo.value)
+  getHasTrademark()
 })
 // 表单校验的规则对象
 const rules = {

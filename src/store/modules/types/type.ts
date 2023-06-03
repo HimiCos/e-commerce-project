@@ -7,6 +7,7 @@ export interface UserState {
   menuRouters: RouteRecordRaw[]
   username: string | null
   avatar: string | null
+  roles: string[]
 }
 // 定义分类仓库state类型
 export interface CategoryState {

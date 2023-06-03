@@ -6,6 +6,8 @@ import 'element-plus/dist/index.css'
 // 引入element-plus國際化
 //@ts-ignore
 import zhCn from 'element-plus/dist/locale/zh-cn.mjs'
+// 引入element-plus的暗黑模式
+import 'element-plus/theme-chalk/dark/css-vars.css'
 // svg插件需要配置代碼
 import 'virtual:svg-icons-register'
 // 引入自定義插件對象：註冊整個項目全局組件

@@ -46,7 +46,7 @@
                 @click="editAttr(row)"
               ></el-button>
               <el-popconfirm
-                :title="`是否要删除当前的属性呢？`"
+                title="确定要删除当前的属性吗? "
                 width="220px"
                 icon="Warning"
                 @confirm="deleteAttr(row)"

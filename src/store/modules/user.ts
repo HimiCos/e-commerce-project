@@ -26,6 +26,7 @@ let useUserStore = defineStore('User', {
       menuRouters: constantRoute, // 仓库存储生成菜单需要的数组（路由）
       username: '', // 用戶名
       avatar: '', // 用戶頭像
+      roles: [], // 用戶的角色
     }
   },
   // 異步｜邏輯的地方
@@ -52,6 +53,7 @@ let useUserStore = defineStore('User', {
       if (result.code === 200) {
         this.username = result.data.name
         this.avatar = result.data.avatar
+        this.roles = result.data.roles
         return 'ok'
       } else {
         return Promise.reject(new Error(result.message))
