@@ -18,16 +18,16 @@ const userStore = useUserStore(pinia)
 nprogress.configure({ showSpinner: false })
 
 // 全局前置守卫
-router.beforeEach(async (to, _, next) => {
+router.beforeEach(async (to: any, _, next: any) => {
   document.title = setting.title.slice(0, 4) + '-' + to.meta.title
   //to:你将要访问那个路由
   //from:你从哪个路由而来
   //next:路由的放行函数
   nprogress.start()
-  // 获取用户名字
-  let username = userStore.username
   // 获取token，判断用户是否登陆
-  let token = userStore.token
+  const token = userStore.token
+  // 获取用户名字
+  const username = userStore.username
   if (token) {
     // 如果有token，证明用户登陆了
     // 如果用户访问的是登陆页，直接跳转到首页
@@ -42,7 +42,7 @@ router.beforeEach(async (to, _, next) => {
         // 如果没有用户信息，获取用户信息
         try {
           await userStore.userInfo()
-          next()
+          next({ ...to })
         } catch (error) {
           // 如果获取用户信息失败，退出登录并跳转到登陆页
           await userStore.userLogout()

@@ -1,0 +1,1 @@
+import{X as e,G as t}from"./index-9436cd64.js";const r=e("SettingStore",{state:()=>({fold:!1,refresh:!1,dark:t("isDark")=="true"}),actions:{updateRefresh(){this.refresh=!this.refresh}}}),a=r;export{a as u};

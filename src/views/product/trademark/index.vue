@@ -2,7 +2,12 @@
   <div>
     <el-card class="box-card" shadow="hover">
       <!-- 卡片顶部的添加按钮 -->
-      <el-button type="primary" icon="Plus" @click="addTrademark">
+      <el-button
+        type="primary"
+        icon="Plus"
+        @click="addTrademark"
+        v-has="`btn.Trademark.add`"
+      >
         添加品牌
       </el-button>
       <!-- 表格组件 -->
@@ -41,12 +46,14 @@
               type="warning"
               icon="edit"
               @click="updateTrademark(row)"
+              v-has="`btn.Trademark.update`"
             ></el-button>
             <el-popconfirm
               title="确定要删除当前的品牌吗? "
               width="230px"
               icon="Warning"
               @confirm="deleteTrademark(row)"
+              v-has="`btn.Trademark.remove`"
             >
               <template #reference>
                 <el-button type="danger" icon="delete"></el-button>

@@ -19,7 +19,9 @@
     <!-- 展示卡片 -->
     <el-card shadow="hover">
       <!-- 展示卡片：顶部两个按钮 -->
-      <el-button type="primary" @click="addUser">添加</el-button>
+      <el-button type="primary" @click="addUser" v-has="`btn.User.add`">
+        添加
+      </el-button>
       <el-popconfirm
         width="220px"
         icon="Warning"
@@ -27,7 +29,11 @@
         @confirm="removeSelectUser"
       >
         <template #reference>
-          <el-button type="danger" :disabled="!selectIdArr.length">
+          <el-button
+            type="danger"
+            :disabled="!selectIdArr.length"
+            v-has="`btn.User.remove`"
+          >
             批量删除
           </el-button>
         </template>
@@ -89,6 +95,7 @@
               icon="User"
               size="small"
               @click="setRole(row)"
+              v-has="`btn.User.assgin`"
             >
               分配角色
             </el-button>
@@ -97,6 +104,7 @@
               icon="Edit"
               size="small"
               @click="updateUser(row)"
+              v-has="`btn.User.update`"
             >
               编辑
             </el-button>
@@ -107,7 +115,12 @@
               @confirm="removeUser(row)"
             >
               <template #reference>
-                <el-button type="danger" icon="Delete" size="small">
+                <el-button
+                  type="danger"
+                  icon="Delete"
+                  size="small"
+                  v-has="`btn.User.remove`"
+                >
                   删除
                 </el-button>
               </template>

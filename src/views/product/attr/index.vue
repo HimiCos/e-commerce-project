@@ -10,6 +10,7 @@
           icon="Plus"
           :disabled="categoryStore.c3Id ? false : true"
           @click="showScene1"
+          v-has="`btn.Attr.add`"
         >
           添加属性
         </el-button>
@@ -44,12 +45,14 @@
                 size="small"
                 icon="Edit"
                 @click="editAttr(row)"
+                v-has="`btn.Attr.update`"
               ></el-button>
               <el-popconfirm
                 title="确定要删除当前的属性吗? "
                 width="220px"
                 icon="Warning"
                 @confirm="deleteAttr(row)"
+                v-has="`btn.Attr.remove`"
               >
                 <template #reference>
                   <el-button

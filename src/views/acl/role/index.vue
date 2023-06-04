@@ -19,7 +19,12 @@
     <!-- 展示卡片 -->
     <el-card shadow="hover">
       <!-- 展示卡片：顶部的按钮 -->
-      <el-button type="primary" icon="Plus" @click="addRole">
+      <el-button
+        type="primary"
+        icon="Plus"
+        @click="addRole"
+        v-has="`btn.Role.add`"
+      >
         添加角色
       </el-button>
       <!-- 展示卡片：表格 -->
@@ -54,6 +59,7 @@
               size="small"
               icon="User"
               @click="setPermisstion(row)"
+              v-has="`btn.Role.assgin`"
             >
               分配权限
             </el-button>
@@ -62,6 +68,7 @@
               size="small"
               icon="Edit"
               @click="editRole(row)"
+              v-has="`btn.Role.update`"
             >
               编辑
             </el-button>
@@ -70,6 +77,7 @@
               title="确定要删除当前的角色吗? "
               width="230px"
               icon="Warning"
+              v-has="`btn.Role.remove`"
             >
               <template #reference>
                 <el-button type="danger" size="small" icon="Delete">

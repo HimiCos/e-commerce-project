@@ -18,6 +18,7 @@
             :type="row.level == 3 ? 'warning' : 'success'"
             size="small"
             :disabled="row.level == 4"
+            v-has="`btn.Permission.add`"
           >
             {{ row.level == 3 ? '添加功能' : '添加菜单' }}
           </el-button>
@@ -26,6 +27,7 @@
             type="primary"
             size="small"
             :disabled="row.level == 1"
+            v-has="`btn.Permission.update`"
           >
             编辑
           </el-button>
@@ -34,6 +36,7 @@
             width="240px"
             icon="warning"
             @confirm="removeMenu(row.id)"
+            v-has="`btn.Permission.remove`"
           >
             <template #reference>
               <el-button type="danger" size="small" :disabled="row.level == 1">

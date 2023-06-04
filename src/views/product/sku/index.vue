@@ -44,18 +44,21 @@
               size="small"
               :icon="row.isSale == 0 ? 'ArrowUp' : 'ArrowDown'"
               @click="updateIsSale(row)"
+              v-has="`btn.Sku.updown`"
             ></el-button>
             <el-button
               type="primary"
               size="small"
               icon="Edit"
               @click="ElMessage.success('程序员正在研发中...')"
+              v-has="`btn.Sku.update`"
             ></el-button>
             <el-button
               type="info"
               size="small"
               icon="PieChart"
               @click="showSkuInfo(row.id)"
+              v-has="`btn.Sku.detail`"
             ></el-button>
             <el-popconfirm
               width="240px"
@@ -64,7 +67,12 @@
               @confirm="deleteSku(row.id)"
             >
               <template #reference>
-                <el-button type="danger" size="small" icon="Delete"></el-button>
+                <el-button
+                  type="danger"
+                  size="small"
+                  icon="Delete"
+                  v-has="`btn.Sku.remove`"
+                ></el-button>
               </template>
             </el-popconfirm>
           </template>

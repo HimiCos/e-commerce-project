@@ -4,7 +4,7 @@ import App from '@/App.vue'
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
 // 引入element-plus國際化
-//@ts-ignore
+//@ts-expect-error
 import zhCn from 'element-plus/dist/locale/zh-cn.mjs'
 // 引入element-plus的暗黑模式
 import 'element-plus/theme-chalk/dark/css-vars.css'
@@ -20,6 +20,8 @@ import router from '@/router'
 import pinia from '@/store'
 // 引入路由鉴权
 import '@/permisstion'
+//引入自定义指令文件
+import { isHasButton } from '@/directive/has'
 
 // 獲取應用實例
 const app = createApp(App)
@@ -33,5 +35,7 @@ app.use(globalComponent)
 app.use(router)
 // 安裝倉庫
 app.use(pinia)
+// 安裝自定義指令
+isHasButton(app)
 // 將應用掛載到掛載點上
 app.mount('#app')

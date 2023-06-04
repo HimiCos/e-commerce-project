@@ -1,18 +1,18 @@
 // 進行 axios 二次封裝：使用請求攔截器與響應攔截器
 import axios from 'axios'
-// @ts-ignore
+// @ts-expect-error
 import { ElMessage } from 'element-plus'
 // 引入user小仓库
 import useUserStore from '@/store/modules/user'
 // 第一步：利用axios對象的create方法 創建axios實例
-let request = axios.create({
+const request = axios.create({
   baseURL: import.meta.env.VITE_APP_BASE_API, // 基本路徑
   timeout: 5000, // 超時時間
 })
 // 第二步：利用axios實例進行請求攔截器的設置
 request.interceptors.request.use((config) => {
   // 获取user小仓库
-  let userStore = useUserStore()
+  const userStore = useUserStore()
   if (userStore.token) {
     // 有token，给请求头设置token
     config.headers.token = userStore.token
@@ -31,7 +31,7 @@ request.interceptors.response.use(
   (error) => {
     // 失敗回調： 處理http網絡錯誤
     let message = ''
-    let status = error.response.status
+    const status = error.response.status
     switch (status) {
       case 400:
         message = '請求參數錯誤'

@@ -8,6 +8,7 @@ export interface UserState {
   username: string | null
   avatar: string | null
   roles: string[]
+  buttons: string[]
 }
 // 定义分类仓库state类型
 export interface CategoryState {

@@ -4,7 +4,7 @@ import { defineStore } from 'pinia'
 import { Get_localStorage } from '@/utils/localStorage'
 
 // 創建用戶小倉庫
-let useLayOutSettingStore = defineStore('SettingStore', {
+const useLayOutSettingStore = defineStore('SettingStore', {
   state: () => {
     return {
       fold: false, //用于控制菜单的展开和收起

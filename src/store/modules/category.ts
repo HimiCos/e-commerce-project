@@ -12,7 +12,7 @@ import type { CategoryState } from '@/store/modules/types/type'
 import { Get_localStorage } from '@/utils/localStorage'
 
 // 創建用戶小倉庫
-let useCategoryStore = defineStore('Category', {
+const useCategoryStore = defineStore('Category', {
   state: (): CategoryState => {
     return {
       // 存储一级分类的数据
@@ -36,7 +36,7 @@ let useCategoryStore = defineStore('Category', {
   actions: {
     //获取一级分类的数据
     async getC1Arr() {
-      let result: CategoryResponse = await reqC1()
+      const result: CategoryResponse = await reqC1()
       if (result.code === 200) {
         this.c1Arr = result.data
       }
@@ -44,7 +44,7 @@ let useCategoryStore = defineStore('Category', {
     // 获取二级分类的数据
     async getC2Arr() {
       if (this.c1Id) {
-        let result: CategoryResponse = await reqC2(this.c1Id)
+        const result: CategoryResponse = await reqC2(this.c1Id)
         if (result.code === 200) {
           this.c2Arr = result.data
           // 清空二级/三级分类的id
@@ -59,7 +59,7 @@ let useCategoryStore = defineStore('Category', {
     // 获取三级分类的数据
     async getC3Arr() {
       if (this.c2Id) {
-        let result: CategoryResponse = await reqC3(this.c2Id)
+        const result: CategoryResponse = await reqC3(this.c2Id)
         if (result.code === 200) {
           this.c3Arr = result.data
           // 清空三级分类的id
@@ -73,7 +73,7 @@ let useCategoryStore = defineStore('Category', {
     async getAttrArr() {
       if (this.c3Id) {
         // 发请求
-        let result: AttrResponseData = await reqAttr(
+        const result: AttrResponseData = await reqAttr(
           this.c1Id,
           this.c2Id,
           this.c3Id,
